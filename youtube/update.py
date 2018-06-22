@@ -78,7 +78,6 @@ with open('config/actors.json') as data_file:
                              subscribers=subscribers,
                              video_count=video_count,
                              view_count=view_count,
-                             comment_count=comment_count,
                              created_date=creation_date.split("T")[0],
                              collected_date=YoutubeAPI.start_time,
                              thumbnail_url=channel_thumbnail,
@@ -105,5 +104,5 @@ with open('config/actors.json') as data_file:
                             child_video_id=related_video['id'],
                             parent_date=YoutubeAPI.start_time,
                             parent_channel_id=channel_id,
-                            parent_url=item['url']
+                            parent_id=item['id']
                         )

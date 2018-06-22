@@ -12,7 +12,6 @@ class Actor(db.Model):
     view_count = db.Column(db.Integer)
     created_date = db.Column(db.String(10))
     collected_date = db.Column(db.Date, primary_key=True)
-    comment_count = db.Column(db.Integer)
     thumbnail_url = db.Column(db.Text)
     description = db.Column(db.Text)
     keywords = db.Column(db.Text)
@@ -23,7 +22,7 @@ class Actor(db.Model):
     def __init__(self, actor_name, actor_username,
                  subscribers, video_count, title,
                  channel_id, view_count, created_date, collected_date,
-                 comment_count, thumbnail_url, description,
+                 thumbnail_url, description,
                  keywords, banner_url, above_one_hundred_thousand):
         self.actor_username = actor_username
         self.actor_name = actor_name
@@ -34,7 +33,6 @@ class Actor(db.Model):
         self.view_count = view_count
         self.created_date = created_date
         self.collected_date = collected_date
-        self.comment_count = comment_count
         self.thumbnail_url = thumbnail_url
         self.description = description
         self.keywords = keywords
@@ -53,7 +51,7 @@ class Videos(db.Model):
     dislikes = db.Column(db.Text)
     comments = db.Column(db.Text)
     favorites = db.Column(db.Text)
-    url = db.Column(db.Text, primary_key=True)
+    url = db.Column(db.Text)
     publishedAt = db.Column(db.Text)
     description = db.Column(db.Text)
     tags = db.Column(db.Text)
@@ -62,7 +60,7 @@ class Videos(db.Model):
     thumbnail = db.Column(db.Text)
     related_to_video = db.Column(db.Text)
     category = db.Column(db.Text)
-    video_id = db.Column(db.Text)
+    video_id = db.Column(db.Text, primary_key=True)
     collected_date = db.Column(db.Date, primary_key=True)
     channel_id = db.Column(db.String(30), primary_key=True)
     __table_args__ = (db.ForeignKeyConstraint(
@@ -101,18 +99,18 @@ class Videos(db.Model):
 class Relationship_Videos(db.Model):
     __tablename__ = 'relationship_videos'
     video_id = db.Column(db.Text, primary_key=True)
-    original_video_url = db.Column(db.Text, primary_key=True)
+    original_video_id = db.Column(db.Text, primary_key=True)
     collected_date = db.Column(db.Date, primary_key=True)
     channel_id = db.Column(db.String(30), primary_key=True)
-    __table_args__ = (db.ForeignKeyConstraint([original_video_url,
+    __table_args__ = (db.ForeignKeyConstraint([original_video_id,
                                               collected_date, channel_id],
-                                              [Videos.url,
+                                              [Videos.video_id,
                                               Videos.collected_date,
                                               Videos.channel_id]), {})
 
-    def __init__(self, video_id, original_video_url,
+    def __init__(self, video_id, original_video_id,
                  collected_date, channel_id):
             self.video_id = video_id
-            self.original_video_url = original_video_url
+            self.original_video_id = original_video_id
             self.collected_date = collected_date
             self.channel_id = channel_id

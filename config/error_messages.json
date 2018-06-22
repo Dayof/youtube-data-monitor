@@ -7,6 +7,10 @@
         {
             "status_code": 460,
             "message": "Actor name was mistyped or this actor name don't exist in our database or there is no data to provide for this actor.Try list all the actors at youtube-data-monitor.herokuapp.com/actors."
+        },
+        {
+            "status_code": 470,
+            "message": "Video id was mistyped or this video id don't exist in our database or there is no data to provide for this actor.Try list all the actors at youtube-data-monitor.herokuapp.com/actors."
         }
     ]
 }

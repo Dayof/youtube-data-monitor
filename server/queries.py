@@ -60,12 +60,12 @@ class DBYouTube:
         return video is None
 
     def add_relationship_videos(child_video_id,
-                                parent_date, parent_channel_id, parent_url):
+                                parent_date, parent_channel_id, parent_id):
         relationship = Relationship_Videos(
                                             video_id=child_video_id,
                                             collected_date=parent_date,
                                             channel_id=parent_channel_id,
-                                            original_video_url=parent_url
+                                            original_video_id=parent_id
         )
 
         db.session.add(relationship)

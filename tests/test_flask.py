@@ -26,7 +26,6 @@ class TestFlask(unittest.TestCase):
                          subscribers=13515,
                          video_count=876,
                          view_count=4307555,
-                         comment_count=0,
                          created_date='2010-01-26',
                          keywords='keywords_value',
                          collected_date=collected_date_value,

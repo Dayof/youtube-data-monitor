@@ -23,7 +23,6 @@ class TestFlask(unittest.TestCase):
                          subscribers=13515,
                          video_count=876,
                          view_count=4307555,
-                         comment_count=0,
                          created_date='2010-01-26',
                          collected_date=datetime.strptime('2018-06-14',
                                                           '%Y-%m-%d').date(),
