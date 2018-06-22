@@ -32,6 +32,7 @@ install() {
 	echo 'Digite sua senha do PostGres'
 	read -sp '' varpassword
 	echo export DATABASE_URL=postgresql://$varlogin:$varpassword@localhost/youtube_database >> venv/bin/activate
+	echo export FLASK_APP=server/main.py >> venv/bin/activate
 
 	#Adiciona o deactivate do enviroment no activate
 	sed -i '37s/.*/    fi\n\n    unset YOUTUBE_KEY\n    unset DATABASE_URL/' venv/bin/activate
