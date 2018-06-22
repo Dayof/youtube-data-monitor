@@ -97,16 +97,16 @@ def list_actor_related_videos(date, actor, video):
         raise InvalidUsage(get_error_message(status_code),
                            status_code=status_code)
 
-    raise_video_error = False
+    result = DBYouTube.get_video_by_actor(
+                db_date,
+                result_actor['channel_id'],
+                video)
+
+    raise_video_error = result is None
     if raise_video_error:
         status_code = 470
         raise InvalidUsage(get_error_message(status_code),
                            status_code=status_code)
-
-    result = {'date': date,
-              'actor': actor,
-              'video': video
-              }
 
     return jsonify(result)
 
@@ -140,7 +140,7 @@ def list_help():
 
 def check_date(date):
     all_dates = DBYouTube.get_dates()['dates']
-    raise_date_error = True
+
     if date == 'latest':
         return all_dates[0]
     else:

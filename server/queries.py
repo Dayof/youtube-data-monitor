@@ -59,6 +59,44 @@ class DBYouTube:
                                                 video_id).first()
         return video is None
 
+    def get_video_by_actor(date, channel_id, video_id):
+        format_date = datetime.strptime(date, '%Y-%m-%d').date()
+        video_info = db.session.query(
+            Videos).filter(
+                Videos.collected_date == format_date,
+                Videos.channel_id == channel_id,
+                Videos.video_id == video_id
+            ).first()
+
+        if video_info is not None:
+            del video_info.__dict__['_sa_instance_state']
+            video_info = video_info.__dict__
+
+        related_videos_results = None
+
+        if video_info is not None:
+            original_video_id = video_info['video_id']
+
+            related_videos_results = db.session.query(
+                Relationship_Videos).filter(
+                    Relationship_Videos.collected_date == format_date,
+                    Relationship_Videos.original_video_id == original_video_id,
+                    Relationship_Videos.channel_id == channel_id
+                )
+
+            related_videos = []
+            if related_videos_results is not None:
+                for item in related_videos_results:
+                    del item.__dict__['_sa_instance_state']
+                    related_videos.append(item.__dict__)
+
+        if related_videos_results is None or video_info is None:
+            result = None
+        else:
+            result = {'video': video_info, 'related_videos': related_videos}
+
+        return result
+
     def add_relationship_videos(child_video_id,
                                 parent_date, parent_channel_id, parent_id):
         relationship = Relationship_Videos(
