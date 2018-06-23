@@ -15,24 +15,6 @@
 $ git clone git@github.com:unb-cic-esw/youtube-data-monitor.git
 ```
 
-### Criar virtualenv
-
-```
-$ virtualenv -p python3 venv
-$ source venv/bin/activate
-```
-
-### Instalar dependências
-
-Todas as bibliotecas de que o projeto depende estão listadas no arquivo
-[requirements.txt](requirements.txt). Para instalá-las, execute:
-
-```
-$ cd youtube-data-monitor
-$ source venv/bin/activate
-$ pip install -r requirements.txt
-```
-
 ### Acesso à API do Youtube
 
 Neste projeto, utilizamos
@@ -43,47 +25,58 @@ disponíveis no [Create API Keys](https://developers.google.com/youtube/register
 
 Crie uma credencial do tipo API key e faça os seguintes procedimentos:
 
+### Acessar o diretório do repositório clonado
+
+- Abra o Terminal e digite o seguinte comando
+
 ```
 $ cd youtube-data-monitor
-$ echo 'export YOUTUBE_KEY=SUA_API_KEY' >> venv/bin/activate
 ```
 
-Adicione a seguinte linha dentro da função ```deactivate()``` dentro do
-arquivo ```venv/bin/activate```:
+### Instalar a aplicação
+
+- Ainda no Terminal, digite:
 
 ```
-deactivate () {
-    ...
-
-    # Unset youtube api key variable
-    unset YOUTUBE_KEY
-}
+$ bash youtube.sh install
 ```
 
+- Será requisitada a chave da API do YouTube, adquirida no passo anterior.
 
+- O Banco de Dados utilizado será o PostgreSQL. Insira um usuário e uma senha que desejar, quando solicitado.
 
-Com isso toda vez que ativar seu ambiente virtual você terá uma variável de
-ambiente com sua API Key do Youtube, e
-toda vez que desativar o ambiente virtual, esta variável será apagada. Para
-testar faça o seguinte:
+- Após este procedimento, a aplicação estará instalada na sua máquina.
 
-```
-$ source venv/bin/activate
-$ echo $YOUTUBE_KEY
-```
+### Executar a aplicação
 
-Após estes comandos sua API deverá mostrar no terminal.
+- No diretório do repositório, digite:
 
 ```
-$ deactivate
-$ echo $YOUTUBE_KEY
+$ bash youtube.sh run
+```
+- A aplicação começará a coletar os dados de forma automática.
+
+- Para analisar os dados, basta executar:
+
+```
+$ flask run
 ```
 
-Após estes comandos sua API não aparecerá no terminal.
+- Com isso, os dados estarão dispostos nas seguintes rotas em seu browser:
 
-Para testar a API o Youtube também disponibiza uma interface para testar as
-requisições nos endpoints >
-[Try this API](https://developers.google.com/youtube/v3/docs/search/list?hl=pt-br&apix=true).
+```
+Rota para todas as datas de coletas:
+localhost:5000/dates
+
+Rota para todos os atores políticos:
+localhost:5000/actors
+
+Rota para os dados de canal com DATA e ATOR específicos:
+localhost:5000/<date>/canal/<actor>
+
+Rota para os vídeos de DATA e ATOR específicos:
+localhost:5000/<date>/canal/<actor>/videos
+```
 
 ## Adicionar funcionalidades
 
