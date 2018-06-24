@@ -77,6 +77,10 @@ Nosso time de desenvolvimento utilizou a prática de integração contínua para
 
 Ao implementar uma nova funcionalidade, primeiramente era escrito o código de teste para checar a futura implementação. Feito isso, a nova funcionalidade era implementada e checada de acordo com o código de testes previamente feito. Por fim, eram realizadas pequenas refatorações para deixar o código com um determinado nível qualidade.
 
+### Lições Aprendidas
+
+No decorrer do projeto, ao utilizar as técnicas listadas acima, pudemos perceber a importância e o beneficio que cada uma das práticas nos proporcionou. A utilização do kanban nos permitiu manter controle sobre o progresso do projeto, percebendo quando alguma historia se encontrava estagnada em alguma etapa e, consequentemente, impedindo que um determinado dupla de desenvolvimento seguisse à frente com uma nova história. Com o pareamento, aprendemos a importância de pair programming, aproveitando ao máximo um maior aprendizado e, consequentemente, evitando códigos com bugs e de má qualidade. A implementação de testes no código e possuir uma boa cobertura de testes nos proporcionou um código muito estável e sem bugs, evitando retrabalho e proporcionando uma entrega de valor contínua. A cada planejamento de iteração, juntamente com o cliente, eram definidos testes de aceitação que proporcionava um objetivo a ser alcançado a cada sprint, ao final de cada sprint o cliente aceitava as histórias se baseando, principalmente, nesses testes. Por fim, um showcase de boa qualidade é algo de suma importância, visto que o objetivo principal é mostrar ao cliente o que foi desenvolvido durante a sprint em um nível de clareza que demonstre exatamente qual valor foi entregue na iteração e o que isso traz de benefícios para o projeto.
+
 ## Histórias Desenvolvidas
 [Coletar os canais dos atores que estão presentes no YouTube](https://github.com/unb-cic-esw/youtube-data-monitor/issues/8)
 [Número de visualizações dos canais](https://github.com/unb-cic-esw/youtube-data-monitor/issues/9)
@@ -88,6 +92,7 @@ Ao implementar uma nova funcionalidade, primeiramente era escrito o código de t
 ## Lista de Bugs
 
 ## Apresentações de Showcase
+
 [Showcase Iteração 3](https://docs.google.com/presentation/d/1FB1x-dEECX-LU0nChBongggWqBpSVORlSmz8hMQ_5RY/edit?usp=sharing)
 
 ## Fotos
