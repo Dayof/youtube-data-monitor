@@ -54,7 +54,7 @@ $ bash youtube.sh install
 ```
 $ bash youtube.sh run
 ```
-- A aplicação começará a coletar os dados de forma automática.
+- A aplicação começará a coletar os dados do dia. Somente poderá executar uma vez por dia.
 
 - Para analisar os dados, basta executar:
 
