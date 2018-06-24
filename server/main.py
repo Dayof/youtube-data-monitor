@@ -122,19 +122,15 @@ def list_all_videos(date):
         raise InvalidUsage(get_error_message(status_code),
                            status_code=status_code)
 
-    result = {'date': date}
+    result = DBYouTube.get_all_videos(db_date)
+
     return jsonify(result)
 
 
 @app.route('/help', methods=['GET'])
 def list_help():
-    raise_video_error = False
-    if raise_video_error:
-        start_code = 470
-        raise InvalidUsage(get_error_message(status_code),
-                           status_code=status_code)
-
-    result = {'help': 'help'}
+    with open('config/routes_help.json') as data_file:
+        result = json.load(data_file)
     return jsonify(result)
 
 
