@@ -76,3 +76,11 @@ Nosso time de desenvolvimento utilizou a prática de integração contínua para
 ### Test Driven Development
 
 Ao implementar uma nova funcionalidade, primeiramente era escrito o código de teste para checar a futura implementação. Feito isso, a nova funcionalidade era implementada e checada de acordo com o código de testes previamente feito. Por fim, eram realizadas pequenas refatorações para deixar o código com um determinado nível qualidade.
+
+## Histórias Desenvolvidas
+
+## Lista de Bugs
+
+## Apresentações de Showcase
+
+## Fotos
