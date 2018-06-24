@@ -9,3 +9,16 @@ Nesse arquivo, encontramos a classe YoutubeAPI. Nesta classe existem diversos m�
 ### videos.py  
 Esse arquivo contém a classe Videos, seus métodos tem como objetivo buscar informações, disponibilizadas pela API do Youtube, sobre os vídeos publicados por cada um dos atores políticos. Alguns exemplos são:
 get_all_video_items, que busca todos os tipos de informações disponibilizadas em cada video; get_category_info, que retorna todas as informações de uma categoria;
+
+### update.py
+Esse arquivo possui funcionalidades que requisitam todas as informações de canais, vídeos e vídeos relacionados da API.
+
+
+## config
+
+### actors.json
+
+Contém o nome, id e username de cada ator político predeterminado em formato JSON. Essas informações podem ser alteradas, para atender a necessidade do usuário.
+
+### error_messages.json
+Esse arquivo possui mensagens para cada código de erro do flask. Esse arquivo pode, também, ser alterado de acordo com a necessidade do usuário.
