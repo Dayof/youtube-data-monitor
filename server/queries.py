@@ -110,6 +110,18 @@ class DBYouTube:
 
         return result
 
+    def get_all_videos(date):
+        videos_db = db.session.query(Videos).filter(
+            Videos.collected_date == date
+        ).all()
+        videos = []
+        if videos_db is not None:
+            for item in videos_db:
+                del item.__dict__['_sa_instance_state']
+                videos.append(item.__dict__)
+
+        return videos
+
     def add_actor(item):
 
         actor_db = Actor(actor_name=item['actor_name'],
@@ -119,12 +131,11 @@ class DBYouTube:
                          subscribers=item['subscribers'],
                          video_count=item['video_count'],
                          view_count=item['view_count'],
-                         comment_count=item['comment_count'],
                          created_date=item['created_date'],
+                         keywords=item['keywords'],
                          collected_date=item['collected_date'],
                          thumbnail_url=item['thumbnail_url'],
                          description=item['description'],
-                         keywords=item['keywords'],
                          banner_url=item['banner_url'],
                          above_one_hundred_thousand=item['hundred_thousand'])
 
@@ -165,7 +176,7 @@ class DBYouTube:
         db.session.add(relationship)
         db.session.commit()
 
-    def insert_actor_video_relationship(video_id, channel_id, collected_date):
+    def add_actor_video_relationship(video_id, channel_id, collected_date):
         relationship_actor_db = Relationship_Actor(
             video_id=video_id,
             channel_id=channel_id,

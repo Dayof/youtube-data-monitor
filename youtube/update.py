@@ -113,7 +113,7 @@ with open('config/actors.json') as data_file:
                     item['collected_date'] = YoutubeAPI.start_time
                     item['channel_id'] = channel_id
                     DBYouTube.add_videos(item)
-                    DBYouTube.insert_actor_video_relationship(
+                    DBYouTube.add_actor_video_relationship(
                         item['id'],
                         channel_id,
                         YoutubeAPI.start_time
