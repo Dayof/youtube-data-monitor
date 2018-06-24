@@ -143,8 +143,8 @@ class DBYouTube:
         db.session.commit()
 
     def add_videos(item):
-        if DBYouTube.is_not_video_in_db(video_id=item['id'],
-                                        date=item['collected_date']):
+        if DBYouTube.is_not_video_in_db(video_id=item['video_id'],
+                                        date=str(item['collected_date'])):
             video_db = Videos(views=item['views'],
                               title=item['title'],
                               likes=item['likes'],
@@ -158,10 +158,10 @@ class DBYouTube:
                               embeddable=item['embeddable'],
                               duration=item['duration'],
                               thumbnail=item['thumbnail'],
-                              category=item['video_category'],
+                              category=item['category'],
                               collected_date=item['collected_date'],
                               channel_id=item['channel_id'],
-                              video_id=item['id'])
+                              video_id=item['video_id'])
             db.session.add(video_db)
             db.session.commit()
 

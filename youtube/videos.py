@@ -166,11 +166,12 @@ class Videos:
                     related_to_video = []
                     for video in search['items']:
                         related_to_video.append(self.get_all_video_items(
-                         [video['id']['videoId']], 1, False)[0])
+                            [video['id']['videoId']], 1, False)[0]
+                         )
                         related_to_video[-1]['original_id'] = item
                 else:
                     related_to_video = 'disabled'
-            videos_dic.append({'id': id,
+            videos_dic.append({'video_id': id,
                                'channel_id': channel_id,
                                'title': video_titles,
                                'views': video_views,
@@ -185,7 +186,7 @@ class Videos:
                                'embeddable': video_embeddable,
                                'duration': video_duration,
                                'thumbnail': video_thumbnail,
-                               'video_category': video_category
+                               'category': video_category
                                })
             if get_related_videos:
                 videos_dic[-1]['related_to_video'] = related_to_video
