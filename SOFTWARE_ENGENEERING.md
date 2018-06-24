@@ -78,12 +78,50 @@ Nosso time de desenvolvimento utilizou a prática de integração contínua para
 Ao implementar uma nova funcionalidade, primeiramente era escrito o código de teste para checar a futura implementação. Feito isso, a nova funcionalidade era implementada e checada de acordo com o código de testes previamente feito. Por fim, eram realizadas pequenas refatorações para deixar o código com um determinado nível qualidade.
 
 ## Histórias Desenvolvidas
+
 [Coletar os canais dos atores que estão presentes no YouTube](https://github.com/unb-cic-esw/youtube-data-monitor/issues/8)
+
 [Número de visualizações dos canais](https://github.com/unb-cic-esw/youtube-data-monitor/issues/9)
+
 [Quantidade de vídeos dos canais](https://github.com/unb-cic-esw/youtube-data-monitor/issues/10)
+
 [Número de visualizações de cada vídeo dos canais](https://github.com/unb-cic-esw/youtube-data-monitor/issues/11)
+
 [Quantidade de inscritos de cada canal](https://github.com/unb-cic-esw/youtube-data-monitor/issues/12)
+
 [Implementar o CircleCI para integração contínua](https://github.com/unb-cic-esw/youtube-data-monitor/issues/13)
+
+[Preparar o módulo de escrita e leitura de CSV](https://github.com/unb-cic-esw/youtube-data-monitor/issues/19)
+
+[Periodicidade da coleta de dados](https://github.com/unb-cic-esw/youtube-data-monitor/issues/22)
+
+[Coleta mais detalhada de vídeos dos canais (likes, dislikes, comentários, favoritos, link)](https://github.com/unb-cic-esw/youtube-data-monitor/issues/23)
+
+[Integração com o módulo de visualização de dados](https://github.com/unb-cic-esw/youtube-data-monitor/issues/24)
+
+[Documentar módulo CRUD de CSV](https://github.com/unb-cic-esw/youtube-data-monitor/issues/25)
+
+[Adicionar pycodestyle no Travis (Testes para verificar padronização do código)](https://github.com/unb-cic-esw/youtube-data-monitor/issues/26)
+
+[Refatorar a branch dev-VideoViewCount](https://github.com/unb-cic-esw/youtube-data-monitor/issues/27)
+
+[Coletar mais dados dos vídeos](https://github.com/unb-cic-esw/youtube-data-monitor/issues/43)
+
+[Informar a inexistência de certos dados](https://github.com/unb-cic-esw/youtube-data-monitor/issues/44)
+
+[Coletar mais dados dos canais](https://github.com/unb-cic-esw/youtube-data-monitor/issues/45)
+
+[Endpoint /dates retorna datas no formato inválido](https://github.com/unb-cic-esw/youtube-data-monitor/issues/50)
+
+[Retornar URL do canal na API](https://github.com/unb-cic-esw/youtube-data-monitor/issues/51)
+
+[Mais dados dos vídeos relacionados](https://github.com/unb-cic-esw/youtube-data-monitor/issues/53)
+
+[Aumento da quantidade de videos coletados](https://github.com/unb-cic-esw/youtube-data-monitor/issues/54)
+
+[Comando simplificado para a execução do programa](https://github.com/unb-cic-esw/youtube-data-monitor/issues/55)
+
+[Testes no banco de dados local](https://github.com/unb-cic-esw/youtube-data-monitor/issues/58)
 
 ## Lista de Bugs
 
