@@ -16,5 +16,24 @@ por intuito servir de material de estudo dos alunos da disciplina Engenharia
 de Software do Departamento de Ciência da Computação da UnB no 1º semestre de
 2018.
 
+
+Os dados estão sendo coletados periodicamente, dispostos nos seguintes links
+
+- [Atores Políticos](https://youtube-data-monitor.herokuapp.com/actors)
+
+- [Datas de coletas](https://youtube-data-monitor.herokuapp.com/dates)
+
+- Para informações do canal (<actor>) na data (<date>) específica:
+
+```
+https://youtube-data-monitor.herokuapp.com/<date>/canal/<actor>
+```
+
+- Para informações de todos os vídeos de um canal (<actor>) em uma data (<date>) específica:
+
+```
+https://youtube-data-monitor.herokuapp.com/<date>/canal/<actor>/videos
+```
+
 Para contribuir com o repositório, favor leia o arquivo
 [CONTRIBUTING to resocie youtube-data-monitor](CONTRIBUTING.md) antes.
