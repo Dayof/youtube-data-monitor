@@ -36,6 +36,10 @@ A coluna "In Progress" é utilizada para acompanhar as histórias que já começ
 cliente.
 Por fim, a coluna "Closed" é onde são mantidas as histórias cujos processos já foram concluídos, tanto de desenvolvimento quanto de aprovação.
 
+### Tracking de horário
+
+A cada sprint era escolhido um tracker para verificar e avaliar a pontualidade de cada integrante do time. Sendo assim, um integrante que chegasse atrasado para o showcase teria uma penalidade de pontos.
+
 ### Stand Up
 
 Essa prática consiste em uma reunião rápida, de aproximadamente cinco minutos, na qual a equipe discute o progresso que teve durante a atual etapa
@@ -67,4 +71,8 @@ Em determinados momentos no decorrer do projeto, eram realizadas refatorações 
 
 ### Integração Contínua
 
-Nosso time de desenvolvimento utilizou a prática de integração contínua para a realização do projeto. Foi utilizado a plataforma Travis para colocar em prática essa técnica de desenvolvimento ágil. Ao realizar qualquer push para as branches remotas e/ou master, o Travis executava todos os requeriments e, também, executava todos os testes realizados no projeto. Caso algum dos testes falhasse, era necessário a correção desse bug. Além disso, para realizar um merge com a master, utilizamos pull-requests para que antes de um merge direto, houvesse alguém (membro do time de desenvolvimento) para revisar o código do pedido de pull request.
+Nosso time de desenvolvimento utilizou a prática de integração contínua para a realização do projeto. Foi utilizado a plataforma Travis para colocar em prática essa técnica de desenvolvimento ágil. Ao realizar qualquer push para as branches remotas e/ou master, o Travis executava todos os requeriments e, também, executava todos os testes realizados no projeto. Caso algum dos testes falhasse, era necessário a correção desse bug. Além disso, para realizar um merge com a master, utilizamos pull-requests para que antes de um merge direto, houvesse alguém (membro do time de desenvolvimento) para revisar o código do pedido de pull request e evitar a integração de um código, contendo bugs, na master.
+
+### Test Driven Development
+
+Ao implementar uma nova funcionalidade, primeiramente era escrito o código de teste para checar a futura implementação. Feito isso, a nova funcionalidade era implementada e checada de acordo com o código de testes previamente feito. Por fim, eram realizadas pequenas refatorações para deixar o código com um determinado nível qualidade.
