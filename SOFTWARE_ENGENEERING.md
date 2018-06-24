@@ -65,4 +65,6 @@ dos integrantes das duplas.
 
 Em determinados momentos no decorrer do projeto, eram realizadas refatorações no código para retirar códigos desnecessários, organizar a code base e comentar determinados pontos do código para deixa-lo de fácil entendimento.
 
-### 
+### Integração Contínua
+
+Nosso time de desenvolvimento utilizou a prática de integração contínua para a realização do projeto. Foi utilizado a plataforma Travis para colocar em prática essa técnica de desenvolvimento ágil. Ao realizar qualquer push para as branches remotas e/ou master, o Travis executava todos os requeriments e, também, executava todos os testes realizados no projeto. Caso algum dos testes falhasse, era necessário a correção desse bug. Além disso, para realizar um merge com a master, utilizamos pull-requests para que antes de um merge direto, houvesse alguém (membro do time de desenvolvimento) para revisar o código do pedido de pull request.
