@@ -37,3 +37,6 @@ https://youtube-data-monitor.herokuapp.com/<date>/canal/<actor>/videos
 
 Para contribuir com o repositório, favor leia o arquivo
 [CONTRIBUTING to resocie youtube-data-monitor](CONTRIBUTING.md) antes.
+
+Para informações sobre a estrutura do código, favor leia o arquivo
+[STRUCTURE of resocie youtube-data-monitor](STRUCTURE.md).
