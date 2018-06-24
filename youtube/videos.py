@@ -99,6 +99,7 @@ class Videos:
             if get_related_videos:
                 search = self.get_search_info(max_results, item, 'video')
             id = views['items'][0]['id']
+            channel_id = views['items'][0]['snippet']['channelId']
             if 'viewCount' in views['items'][0]['statistics']:
                 video_views = views['items'][0]['statistics']['viewCount']
             else:
@@ -166,11 +167,11 @@ class Videos:
                     for video in search['items']:
                         related_to_video.append(self.get_all_video_items(
                          [video['id']['videoId']], 1, False)[0])
-                        related_to_video[-1]['original_title'] = video_titles
                         related_to_video[-1]['original_id'] = item
                 else:
                     related_to_video = 'disabled'
             videos_dic.append({'id': id,
+                               'channel_id': channel_id,
                                'title': video_titles,
                                'views': video_views,
                                'likes': video_likes,
