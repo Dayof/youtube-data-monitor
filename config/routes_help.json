@@ -1,0 +1,32 @@
+{
+    "routes": [
+        {
+            "route": "/actors",
+            "message": "Returns all actors names."
+        },
+        {
+            "route": "/dates",
+            "message": "Returns all available dates."
+        },
+        {
+            "route": "/<date>/canal/<actor>",
+            "message": "Returns actor YouTube channel info to a given date."
+        },
+        {
+            "route": "/<date>/canal/<actor>/videos",
+            "message": "Returns all YouTube videos info to given date and given actor."
+        },
+        {
+            "route": "/<date>/canal/<actor>/videos/<video>",
+            "message": "Returns all YouTube videos info of videos related to a given video of a given date and actor."
+        },
+        {
+            "route": "/<date>/videos",
+            "message": "Returns all YouTube videos info to a given date."
+        },
+        {
+            "route": "/help",
+            "message": "You are here. :D"
+        }
+    ]
+}
