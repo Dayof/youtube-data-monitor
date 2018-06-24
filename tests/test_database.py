@@ -1,5 +1,5 @@
 from server.models import Actor, Videos
-from server.models import Relationship_Actor, Relationship_Videos
+from server.models import Relationship_Actor_Videos, Relationship_Videos
 from server.queries import DBYouTube
 from flask import Flask
 import unittest

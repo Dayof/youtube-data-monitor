@@ -17,7 +17,7 @@ class Actor(db.Model):
     keywords = db.Column(db.Text)
     banner_url = db.Column(db.Text)
     above_one_hundred_thousand = db.Column(db.Boolean)
-    channel_videos = db.relationship('Relationship_Actor',
+    channel_videos = db.relationship('Relationship_Actor_Videos',
                                      backref='actor', lazy=True)
 
     def __init__(self, actor_name, actor_username,
@@ -107,8 +107,8 @@ class Relationship_Videos(db.Model):
             self.collected_date = collected_date
 
 
-class Relationship_Actor(db.Model):
-    __tablename__ = 'relationship_actor'
+class Relationship_Actor_Videos(db.Model):
+    __tablename__ = 'relationship_actor_videos'
     video_id = db.Column(db.Text, primary_key=True)
     channel_id = db.Column(db.Text, primary_key=True)
     collected_date = db.Column(db.Date, primary_key=True)

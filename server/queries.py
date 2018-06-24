@@ -1,5 +1,5 @@
 from server.models import Actor, Videos
-from server.models import Relationship_Videos, Relationship_Actor
+from server.models import Relationship_Videos, Relationship_Actor_Videos
 from datetime import datetime
 from sqlalchemy import func
 from server import db
@@ -38,9 +38,9 @@ class DBYouTube:
     def get_actor_videos(date, channel_id):
         format_date = datetime.strptime(date, '%Y-%m-%d').date()
         videos = db.session.query(Videos).join(
-            Relationship_Actor
-            ).filter(Relationship_Actor.collected_date == format_date,
-                     Relationship_Actor.channel_id == channel_id).all()
+            Relationship_Actor_Videos
+            ).filter(Relationship_Actor_Videos.collected_date == format_date,
+                     Relationship_Actor_Videos.channel_id == channel_id).all()
 
         all_videos = []
         if videos is not None:
@@ -67,10 +67,10 @@ class DBYouTube:
 
         # check if relation between given actor and given video exists in DB
         actor = db.session.query(
-            Relationship_Actor).filter(
-                Relationship_Actor.collected_date == format_date,
-                Relationship_Actor.video_id == video_id,
-                Relationship_Actor.channel_id == channel_id
+            Relationship_Actor_Videos).filter(
+                Relationship_Actor_Videos.collected_date == format_date,
+                Relationship_Actor_Videos.video_id == video_id,
+                Relationship_Actor_Videos.channel_id == channel_id
             ).first()
 
         related_videos_results = None
@@ -189,7 +189,7 @@ class DBYouTube:
         db.session.commit()
 
     def add_actor_video_relationship(video_id, channel_id, collected_date):
-        relationship_actor_db = Relationship_Actor(
+        relationship_actor_db = Relationship_Actor_Videos(
             video_id=video_id,
             channel_id=channel_id,
             collected_date=collected_date
@@ -199,11 +199,9 @@ class DBYouTube:
 
 
 def parser_tags(tags):
-    print(tags)
     tags = tags.replace('"', '')
     tags = '["' + tags[1:]
     tags = tags[:-1] + '"]'
     tags = tags.replace(',', '","')
     tags = tags.replace(':', '')
-    print(tags)
     return json.loads(tags)
