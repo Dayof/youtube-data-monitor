@@ -36,10 +36,10 @@ Modela todas as tabelas do banco de dados, definindo sua estrutura. As tabelas s
 * Relationship_Actor_Videos
 * Relationship_Videos
 
-A tabela Actor contém as informações de todos os atores coletados;
-A tabela Videos contém as informações de todos os videos coletados;
-A tabela Relationship_Actor_Videos contém as informações da relação entre as tabelas Actors e Videos
-A tabela Relationship_Videos contém informações das relações entre os vídeos (Ex: vídeos e vídeos relacionados).
+A tabela Actor contém as informações de todos os atores coletados;<br />
+A tabela Videos contém as informações de todos os videos coletados;<br />
+A tabela Relationship_Actor_Videos contém as informações da relação entre as tabelas Actors e Videos;<br />
+A tabela Relationship_Videos contém informações das relações entre os vídeos (Ex: vídeos e vídeos relacionados);<br />
 
 ### queries.py
 A classe DBYouTube possui os métodos que descrevem cada query do banco de dados, alguns exemplos são:
