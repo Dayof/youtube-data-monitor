@@ -78,6 +78,12 @@ Nosso time de desenvolvimento utilizou a prática de integração contínua para
 Ao implementar uma nova funcionalidade, primeiramente era escrito o código de teste para checar a futura implementação. Feito isso, a nova funcionalidade era implementada e checada de acordo com o código de testes previamente feito. Por fim, eram realizadas pequenas refatorações para deixar o código com um determinado nível qualidade.
 
 ## Histórias Desenvolvidas
+[Coletar os canais dos atores que estão presentes no YouTube](https://github.com/unb-cic-esw/youtube-data-monitor/issues/8)
+[Número de visualizações dos canais](https://github.com/unb-cic-esw/youtube-data-monitor/issues/9)
+[Quantidade de vídeos dos canais](https://github.com/unb-cic-esw/youtube-data-monitor/issues/10)
+[Número de visualizações de cada vídeo dos canais](https://github.com/unb-cic-esw/youtube-data-monitor/issues/11)
+[Quantidade de inscritos de cada canal](https://github.com/unb-cic-esw/youtube-data-monitor/issues/12)
+[Implementar o CircleCI para integração contínua](https://github.com/unb-cic-esw/youtube-data-monitor/issues/13)
 
 ## Lista de Bugs
 
