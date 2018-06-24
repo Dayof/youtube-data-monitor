@@ -84,3 +84,6 @@ Ao implementar uma nova funcionalidade, primeiramente era escrito o código de t
 ## Apresentações de Showcase
 
 ## Fotos
+![alt tag](https://i.imgur.com/1wphzvE.jpg "Time de desenvolvimento")
+![alt tag](https://i.imgur.com/3dpPwtV.jpg "Tracking de horário")
+![alt tag](https://i.imgur.com/9Dpz6xk.jpg "História")
