@@ -53,9 +53,16 @@ Também é o momento no qual o cliente aprova as histórias concluídas, por mei
 
 ### Planejamento de Iteração
 
+No inicio de cada iteração, era realizada uma reunião entre o cliente e os integrantes do time. As histórias da próxima sprint eram definidas e aceitas pelos clientes. Além disso, eram definidas as duplas que seriam responsáveis por cada história.
 
 ### Pareamento
 
 A cada iteração a equipe era dividia aleatoriamente em pares, e as histórias acordadas com o(s) cliente(s) eram atribuídas à esses pares.
 Além disso, foi realizado o "tracking", ou seja, o acompanhamento, de quais duplas já haviam sido pareadas, para não haver repetições
 dos integrantes das duplas.
+
+### Refatoração
+
+Em determinados momentos no decorrer do projeto, eram realizadas refatorações no código para retirar códigos desnecessários, organizar a code base e comentar determinados pontos do código para deixa-lo de fácil entendimento.
+
+### 
