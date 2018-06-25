@@ -91,7 +91,8 @@ localhost:5000/<date>/canal/<actor>/videos
 
 ## Adicionar funcionalidades
 
-Para cada estória a ser resolvida, seguir o seguinte procedimento:
+Primeiramente procure uma tarefa para começar. [Temos uma lista de bugs e dívidas técnicas](CONTRIBUTING.md) ou você pode procurar uma nova funcionalidade na [API do Youtube](https://developers.google.com/youtube/v3/)
+Para cada história a ser resolvida, seguir o seguinte procedimento:
 
 - Clone o repositório
 - Prepare o ambiente como foi explicado acima
