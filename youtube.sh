@@ -14,8 +14,16 @@ install() {
 	
 	#Instala o postgres
 	case "$OSTYPE" in
-  	darwin*)  brew install postgresql ;; 
-  	linux*)   sudo apt-get install postgresql ;;
+  	darwin*)  
+	#Adiciona o deactivate do enviroment no activate
+	#sed -i "" '37s/.*/    fi "$'\n/g'" unset YOUTUBE_KEY "$'\n/g'" unset DATABASE_URL/' venv/bin/activate  
+	#Instala o Postgres	
+	brew install postgresql ;; 
+  	linux*) 
+	#Adiciona o deactivate do enviroment no activate
+	sed -i '37s/.*/    fi\n\n    unset YOUTUBE_KEY\n    unset DATABASE_URL/' venv/bin/activate  
+	#Instala o Postgres
+	sudo apt-get install postgresql ;;
   	*)        echo "Sistema: $OSTYPE desconhecido, instale manualmente o PostGres" ;;
 	esac
 
@@ -33,10 +41,6 @@ install() {
 	read -sp '' varpassword
 	echo export DATABASE_URL=postgresql://$varlogin:$varpassword@localhost/youtube_database >> venv/bin/activate
 	echo export FLASK_APP=server/main.py >> venv/bin/activate
-
-	#Adiciona o deactivate do enviroment no activate
-	sed -i '37s/.*/    fi\n\n    unset YOUTUBE_KEY\n    unset DATABASE_URL/' venv/bin/activate
-
 }
 
 #Faz a coleta dos dados
