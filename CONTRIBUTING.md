@@ -116,10 +116,15 @@ $ git push origin dev-subscribers
 
 
 ## Executar os testes
-
 Todos os testes foram desenvolvidos utilizando a biblioteca
 [unittest](https://docs.python.org/3/library/unittest.html) nativa do Python.
-Para executá-los, a partir da pasta raiz do projeto, execute:
+
+Os testes podem ser executados pelo seguinte comando:
+```
+$ bash youtube.sh test
+```
+
+Alternativamente, para executá-los, a partir da pasta raiz do projeto (dentro do environment), execute:
 
 ```
 $ python -m unittest discover tests
