@@ -35,6 +35,8 @@ $ cd youtube-data-monitor
 
 ### Instalar a aplicação
 
+## Ubuntu
+
 - Ainda no Terminal, digite:
 
 ```
@@ -46,6 +48,15 @@ $ bash youtube.sh install
 - O Banco de Dados utilizado será o PostgreSQL. Insira um usuário e uma senha que desejar, quando solicitado.
 
 - Após este procedimento, a aplicação estará instalada na sua máquina.
+
+## MAC OS
+ [Siga as instruções acima](#ubuntu)<br />
+ Por fim, abra o arquivo activate que se encontra em venv/bin e adicione as seguintes linhas ao final da função deactivate():
+ ```
+ unset YOUTUBE_KEY
+ unset DATABASE_URL/
+ ```
+
 
 ### Executar a aplicação
 
@@ -80,7 +91,8 @@ localhost:5000/<date>/canal/<actor>/videos
 
 ## Adicionar funcionalidades
 
-Para cada estória a ser resolvida, seguir o seguinte procedimento:
+Primeiramente procure uma tarefa para começar. [Temos uma lista de bugs e dívidas técnicas](CONTRIBUTING.md) ou você pode procurar uma nova funcionalidade na [API do Youtube](https://developers.google.com/youtube/v3/)
+Para cada história a ser resolvida, seguir o seguinte procedimento:
 
 - Clone o repositório
 - Prepare o ambiente como foi explicado acima
@@ -105,10 +117,15 @@ $ git push origin dev-subscribers
 
 
 ## Executar os testes
-
 Todos os testes foram desenvolvidos utilizando a biblioteca
 [unittest](https://docs.python.org/3/library/unittest.html) nativa do Python.
-Para executá-los, a partir da pasta raiz do projeto, execute:
+
+Os testes podem ser executados pelo seguinte comando:
+```
+$ bash youtube.sh test
+```
+
+Alternativamente, para executá-los, a partir da pasta raiz do projeto (dentro do environment), execute:
 
 ```
 $ python -m unittest discover tests
@@ -168,3 +185,15 @@ E então executar o servidor com:
 ```
 $ flask run
 ```
+
+## Lista de Bugs e dívidas técnicas
+
+### Dívidas técnicas
+
+* [Comando Bash para instalação automática não é compatível totalmente com sistemas MAC OS](https://github.com/unb-cic-esw/youtube-data-monitor/issues/61);
+* [As datas das coletas estão no formato: YYYY-MM-DD. O comportamento esperado seria: DD-MM-YYYY](https://github.com/unb-cic-esw/youtube-data-monitor/issues/62);
+* [Adicionar versões para os endpoints que retornam arquivos CSV](https://github.com/unb-cic-esw/youtube-data-monitor/issues/63);
+
+### Bugs
+
+* [Sustentar mais de uma coleta por dia](https://github.com/unb-cic-esw/youtube-data-monitor/issues/64);

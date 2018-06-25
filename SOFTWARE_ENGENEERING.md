@@ -79,7 +79,11 @@ Ao implementar uma nova funcionalidade, primeiramente era escrito o código de t
 
 ### Lições Aprendidas
 
-No decorrer do projeto, ao utilizar as técnicas listadas acima, pudemos perceber a importância e o beneficio que cada uma das práticas nos proporcionou. A utilização do kanban nos permitiu manter controle sobre o progresso do projeto, percebendo quando alguma historia se encontrava estagnada em alguma etapa e, consequentemente, impedindo que um determinado dupla de desenvolvimento seguisse à frente com uma nova história. Com o pareamento, aprendemos a importância de pair programming, aproveitando ao máximo um maior aprendizado e, consequentemente, evitando códigos com bugs e de má qualidade. A implementação de testes no código e possuir uma boa cobertura de testes nos proporcionou um código muito estável e sem bugs, evitando retrabalho e proporcionando uma entrega de valor contínua. A cada planejamento de iteração, juntamente com o cliente, eram definidos testes de aceitação que proporcionava um objetivo a ser alcançado a cada sprint, ao final de cada sprint o cliente aceitava as histórias se baseando, principalmente, nesses testes. Por fim, um showcase de boa qualidade é algo de suma importância, visto que o objetivo principal é mostrar ao cliente o que foi desenvolvido durante a sprint em um nível de clareza que demonstre exatamente qual valor foi entregue na iteração e o que isso traz de benefícios para o projeto.
+No decorrer do projeto, ao utilizar as técnicas listadas acima, pudemos perceber a importância e o beneficio que cada uma das práticas nos proporcionou. A utilização do kanban nos permitiu manter controle sobre o progresso do projeto, percebendo quando alguma historia se encontrava estagnada em alguma etapa e, consequentemente, impedindo que uma determinada dupla de desenvolvimento seguisse à frente com uma nova história. Com o pareamento, aprendemos a importância de pair programming, aproveitando ao máximo um maior aprendizado e, consequentemente, evitando códigos com bugs e de má qualidade. A implementação de testes no código e possuir uma boa cobertura de testes nos proporcionou um código muito estável e sem bugs, evitando retrabalho e proporcionando uma entrega de valor contínua. A cada planejamento de iteração, juntamente com o cliente, eram definidos testes de aceitação que proporcionava um objetivo a ser alcançado a cada sprint, ao final de cada sprint o cliente aceitava as histórias se baseando, principalmente, nesses testes. Por fim, um showcase de boa qualidade é algo de suma importância, visto que o objetivo principal é mostrar ao cliente o que foi desenvolvido durante a sprint em um nível de clareza que demonstre exatamente qual valor foi entregue na iteração e o que isso traz de benefícios para o projeto.
+
+### Ética
+
+Todas as informações coletadas pelo YouTube Data Monitor são adquiridas através da YouTube API V3, esses dados estão estão disponíveis para qualquer usuário na web conforme as preferências de cada criador de conteúdo no YouTube. Sendo possível, a qualquer momento, o bloqueio de certas categorias de dados por parte dos proprietários dos canais. A coleta e o armazenamento dos dados provenientes dessa aplicação estão dentro dos conformes dos [termos de serviço do YouTube](https://developers.google.com/youtube/terms/api-services-terms-of-service). Essa aplicação, de nenhuma forma, possui a intenção ou incentiva o uso dos dados coletados para fins que não sejam destinados a educação e/ou pesquisa científica. <br />
 
 ## Histórias Desenvolvidas
 
@@ -126,8 +130,6 @@ No decorrer do projeto, ao utilizar as técnicas listadas acima, pudemos percebe
 [Comando simplificado para a execução do programa](https://github.com/unb-cic-esw/youtube-data-monitor/issues/55)
 
 [Testes no banco de dados local](https://github.com/unb-cic-esw/youtube-data-monitor/issues/58)
-
-## Lista de Bugs
 
 ## Apresentações de Showcase
 
