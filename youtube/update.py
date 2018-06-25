@@ -3,7 +3,7 @@ from youtube.youtube import YoutubeAPI
 from core.output import FileOutput
 from youtube.videos import Videos
 from server.models import Actor, db
-from server.models import Videos as VideosDB, Relationship_Actor
+from server.models import Videos as VideosDB, Relationship_Actor_Videos
 from server.queries import DBYouTube
 from server.main import app
 import time
@@ -21,7 +21,10 @@ with open('config/actors.json') as data_file:
     actors_dict = actors['channels']
     no_video_actors = []
 
-    for actor in actors_dict:            # get ID from youtube.csv
+    with open('config/parameters.json') as data_file:
+        parameters = json.load(data_file)['parameters']
+
+    for actor in actors_dict:
         channel_id = actor['id']
         channel_username = actor['username']
         channel_actor = actor['actor']
@@ -62,7 +65,11 @@ with open('config/actors.json') as data_file:
             db.session.add(actor_db)
             db.session.commit()
             print(actor_db)
-            videos_views = video.get_all_video_views_user_id(response, 5)
+            videos_views = video.get_all_video_views_user_id(
+                response,
+                parameters['video_limit'],
+                parameters['related_video_limit']
+            )
 
             if videos_views:
                 for item in videos_views:

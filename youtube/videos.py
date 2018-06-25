@@ -15,12 +15,17 @@ class Videos:
 
         Following certain date gets video's id, views and title.
     """
+
     def __init__(self):
+
+        with open('config/parameters.json') as data_file:
+            parameters = json.load(data_file)['parameters']
+
         self.user = YoutubeAPI()
         self._activities = {'part': 'snippet,contentDetails',
                             'channelId': '',
                             'maxResults': '',
-                            'publishedAfter': '2018-01-01T00:00:01.45-03:00',
+                            'publishedAfter': parameters['initial_date'],
                             'key': self.user._youtube_key}
         self._activities_extent = {'part': 'snippet,contentDetails',
                                    'channelId': '',
@@ -92,12 +97,14 @@ class Videos:
 
         return video_ids
 
-    def get_all_video_items(self, response, max_results, get_related_videos):
+    def get_all_video_items(self, response, max_results,
+                            related_videos_max_results, get_related_videos):
         videos_dic = []
         for item in response:
             views = self.get_videos_info(item, max_results)
             if get_related_videos:
-                search = self.get_search_info(max_results, item, 'video')
+                search = self.get_search_info(related_videos_max_results,
+                                              item, 'video')
             id = views['items'][0]['id']
             channel_id = views['items'][0]['snippet']['channelId']
             if 'viewCount' in views['items'][0]['statistics']:
@@ -166,7 +173,7 @@ class Videos:
                     related_to_video = []
                     for video in search['items']:
                         related_to_video.append(self.get_all_video_items(
-                            [video['id']['videoId']], 1, False)[0]
+                            [video['id']['videoId']], 1, 0, False)[0]
                          )
                         related_to_video[-1]['original_id'] = item
                 else:
@@ -193,10 +200,13 @@ class Videos:
 
         return videos_dic
 
-    def get_all_video_views_user_id(self, response, max_results):
+    def get_all_video_views_user_id(self, response,
+                                    max_results, related_videos_max_results):
         channel_id = self.user.get_channel_id(response)
         result_activities = self.get_activity_info(channel_id, max_results)
         videos_id = self.get_all_video_ids(result_activities)
-        video_views = self.get_all_video_items(videos_id, max_results, True)
+        video_views = self.get_all_video_items(
+            videos_id, max_results, related_videos_max_results, True
+        )
 
         return video_views
