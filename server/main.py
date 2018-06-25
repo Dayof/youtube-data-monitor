@@ -76,9 +76,67 @@ def list_actor_channel_info(date, actor):
     return jsonify(result_actor)
 
 
+@app.route('/<date>/canal/<actor>/videos/<video>', methods=['GET'])
+def list_actor_related_videos(date, actor, video):
+    raise_date_error, raise_actor_error, raise_video_error = True, True, True
+
+    db_date = check_date(date)
+    raise_date_error = db_date is None
+
+    if raise_date_error:
+        status_code = 450
+        raise InvalidUsage(get_error_message(status_code),
+                           status_code=status_code)
+
+    actor = actor.replace('_', ' ')
+    result_actor = DBYouTube.get_info_actor(db_date, actor)
+    raise_actor_error = result_actor is None
+
+    if raise_actor_error:
+        status_code = 460
+        raise InvalidUsage(get_error_message(status_code),
+                           status_code=status_code)
+
+    result = DBYouTube.get_video_by_actor(
+                db_date,
+                result_actor['channel_id'],
+                video)
+
+    raise_video_error = result is None
+    if raise_video_error:
+        status_code = 470
+        raise InvalidUsage(get_error_message(status_code),
+                           status_code=status_code)
+
+    return jsonify(result)
+
+
+@app.route('/<date>/videos', methods=['GET'])
+def list_all_videos(date):
+    raise_date_error = True
+    db_date = check_date(date)
+    raise_date_error = db_date is None
+
+    if raise_date_error:
+        status_code = 450
+        raise InvalidUsage(get_error_message(status_code),
+                           status_code=status_code)
+
+    result = DBYouTube.get_all_videos(db_date)
+
+    return jsonify(result)
+
+
+@app.route('/help', methods=['GET'])
+def list_help():
+    with open('config/routes_help.json') as data_file:
+        result = json.load(data_file)
+    return jsonify(result)
+
+
 def check_date(date):
     all_dates = DBYouTube.get_dates()['dates']
-    raise_date_error = True
+
     if date == 'latest':
         return all_dates[0]
     else:

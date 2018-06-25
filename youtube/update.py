@@ -3,7 +3,7 @@ from youtube.youtube import YoutubeAPI
 from core.output import FileOutput
 from youtube.videos import Videos
 from server.models import Actor, db
-from server.models import Videos as VideosDB
+from server.models import Videos as VideosDB, Relationship_Actor_Videos
 from server.queries import DBYouTube
 from server.main import app
 import time
@@ -16,39 +16,15 @@ video = Videos()
 app.app_context().push()
 db.create_all()  # create the tables and database
 
-
-def insert_video_db(item, channel_id):
-    if DBYouTube.is_not_video_in_db(video_id=item['id'],
-                                    channel_id=channel_id,
-                                    date=YoutubeAPI.start_time):
-        video_db = VideosDB(views=item['views'],
-                            title=item['title'],
-                            likes=item['likes'],
-                            dislikes=item['dislikes'],
-                            comments=item['comments'],
-                            favorites=item['favorites'],
-                            url=item['url'],
-                            publishedAt=item['publishedAt'],
-                            description=item['description'],
-                            tags=item['tags'],
-                            embeddable=item['embeddable'],
-                            duration=item['duration'],
-                            thumbnail=item['thumbnail'],
-                            related_to_video=item['related_to_video'],
-                            category=item['video_category'],
-                            collected_date=YoutubeAPI.start_time,
-                            channel_id=channel_id,
-                            video_id=item['id'])
-        db.session.add(video_db)
-        db.session.commit()
-
-
 with open('config/actors.json') as data_file:
     actors = json.load(data_file)
     actors_dict = actors['channels']
     no_video_actors = []
 
-    for actor in actors_dict:            # get ID from youtube.csv
+    with open('config/parameters.json') as data_file:
+        parameters = json.load(data_file)['parameters']
+
+    for actor in actors_dict:
         channel_id = actor['id']
         channel_username = actor['username']
         channel_actor = actor['actor']
@@ -78,7 +54,6 @@ with open('config/actors.json') as data_file:
                              subscribers=subscribers,
                              video_count=video_count,
                              view_count=view_count,
-                             comment_count=comment_count,
                              created_date=creation_date.split("T")[0],
                              collected_date=YoutubeAPI.start_time,
                              thumbnail_url=channel_thumbnail,
@@ -90,20 +65,29 @@ with open('config/actors.json') as data_file:
             db.session.add(actor_db)
             db.session.commit()
             print(actor_db)
-            videos_views = video.get_all_video_views_user_id(response, 5)
+            videos_views = video.get_all_video_views_user_id(
+                response,
+                parameters['video_limit'],
+                parameters['related_video_limit']
+            )
 
             if videos_views:
                 for item in videos_views:
                     related_videos = item['related_to_video']
-                    item['related_to_video'] = None
-                    insert_video_db(item, channel_id)
+                    item['collected_date'] = YoutubeAPI.start_time
+                    item['channel_id'] = channel_id
+                    DBYouTube.add_videos(item)
+                    DBYouTube.add_actor_video_relationship(
+                        item['video_id'],
+                        channel_id,
+                        YoutubeAPI.start_time
+                    )
                     for related_video in related_videos:
-                        original_id = related_video['original_id']
-                        related_video['related_to_video'] = original_id
-                        insert_video_db(related_video, channel_id)
+                        related_video['collected_date'] = YoutubeAPI.start_time
+                        related_video['channel_id'] = channel_id
+                        DBYouTube.add_videos(related_video)
                         DBYouTube.add_relationship_videos(
-                            child_video_id=related_video['id'],
+                            child_video_id=related_video['video_id'],
                             parent_date=YoutubeAPI.start_time,
-                            parent_channel_id=channel_id,
-                            parent_url=item['url']
+                            parent_id=item['video_id']
                         )
