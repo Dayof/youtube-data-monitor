@@ -131,18 +131,6 @@ Todas as informações coletadas pelo YouTube Data Monitor são adquiridas atrav
 
 [Testes no banco de dados local](https://github.com/unb-cic-esw/youtube-data-monitor/issues/58)
 
-## Lista de Bugs e dívidas técnicas
-
-### Dívidas técnicas
-
-* [Comando Bash para instalação automática não é compatível totalmente com sistemas MAC OS](https://github.com/unb-cic-esw/youtube-data-monitor/issues/61);
-* [As datas das coletas estão no formato: YYYY-MM-DD. O comportamento esperado seria: DD-MM-YYYY](https://github.com/unb-cic-esw/youtube-data-monitor/issues/62);
-* [Adicionar versões para os endpoints que retornam arquivos CSV](https://github.com/unb-cic-esw/youtube-data-monitor/issues/63);
-
-### Bugs
-
-* [Sustentar mais de uma coleta por dia](https://github.com/unb-cic-esw/youtube-data-monitor/issues/64);
-
 ## Apresentações de Showcase
 
 [Showcase Iteração 3](https://docs.google.com/presentation/d/1FB1x-dEECX-LU0nChBongggWqBpSVORlSmz8hMQ_5RY/edit?usp=sharing)
