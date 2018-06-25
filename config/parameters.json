@@ -1,0 +1,7 @@
+{
+    "parameters": {
+        "video_limit": 5,
+        "related_video_limit": 5,
+        "initial_date": "2018-01-01T00:00:01.45-03:00"
+    }
+}

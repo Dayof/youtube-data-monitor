@@ -1,5 +1,6 @@
 from server.main import *
 from server.models import Actor, Videos
+from server.models import Relationship_Actor_Videos, Relationship_Videos
 from flask import Flask
 import unittest
 import json
@@ -26,7 +27,6 @@ class TestFlask(unittest.TestCase):
                          subscribers=13515,
                          video_count=876,
                          view_count=4307555,
-                         comment_count=0,
                          created_date='2010-01-26',
                          keywords='keywords_value',
                          collected_date=collected_date_value,
@@ -48,14 +48,45 @@ class TestFlask(unittest.TestCase):
                           embeddable='embeddable',
                           duration='duration',
                           thumbnail='thumbnail',
-                          related_to_video='related_to_video',
                           category='category',
                           collected_date=collected_date_value,
                           channel_id='channel_id_value',
                           video_id='1')
 
-        db.session.add(video_db)
+        related_video_db = Videos(
+            title='Related title',
+            likes='34',
+            views='8234',
+            dislikes='3',
+            comments='2',
+            favorites='10',
+            url='https://www.youtube.com/watch?v=hFc_scYRasdY',
+            publishedAt='2015-12-13T17:37:01.000Z',
+            description='',
+            tags='disabled',
+            embeddable='True',
+            duration='PT4H24M20S',
+            thumbnail='https://i.ytimg.com/vi/hFc_sasdRpQY/hqdefault.jpg',
+            category='Entretenimento',
+            video_id='2',
+            collected_date=collected_date_value,
+            channel_id='channel_id_value')
+
+        relationship_actor_db = Relationship_Actor_Videos(
+            video_id='1',
+            channel_id='channel_id_value',
+            collected_date=collected_date_value
+        )
+
+        relationship_video_db = Relationship_Videos(
+            video_id='2',
+            original_video_id='1',
+            collected_date=collected_date_value
+        )
         db.session.add(actor_db)
+        db.session.add(video_db)
+        db.session.add(relationship_actor_db)
+        db.session.add(relationship_video_db)
         db.session.commit()
         # Cria um cliente de teste
         self.app = app.test_client()
@@ -149,7 +180,7 @@ class TestFlask(unittest.TestCase):
                            'comments', 'url', 'category', 'channel_id',
                            'collected_date', 'description', 'duration',
                            'embeddable', 'favorites',
-                           'publishedAt', 'related_to_video',
+                           'publishedAt',
                            'tags', 'thumbnail', 'video_id'].sort()
 
         r = json.loads(result.data.decode('utf8'))

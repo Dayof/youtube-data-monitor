@@ -47,28 +47,27 @@ class TestVideos(unittest.TestCase):
         self.assertEqual(video_ids[-1:], assert_list)
 
     def test_all_videos_count_user_id(self):
-        user_id = 'UCs6avCwreiI6QoFR83Ul2UQ'
+        user_id = 'UCsCI7wlAwbzTPK55yVaX2Ig'
         result = self._user.get_channel_info(user_id)
         max_results = 50
         video_views = self._video.get_all_video_views_user_id(result,
-                                                              max_results)
+                                                              max_results, 0)
         video_title = video_views[-1]['title']
-        self.assertEqual(video_title, 'Dilma e Amorim \
-denunciam milícias à mídia internacional')
+        self.assertEqual(video_title, 'Encontro Presencial - IAEaD 2018')
         video_view = int(video_views[-1]['views'])
         video_url = str(video_views[-1]['url'])
         video_likes = str(video_views[-1]['likes'])
         video_dislikes = str(video_views[-1]['dislikes'])
         video_comments = str(video_views[-1]['comments'])
         video_favorites = int(video_views[-1]['favorites'])
-        self.assertGreater(video_view, 543)
-        self.assertLess(video_view, 700)
+        self.assertGreater(video_view, 16)
+        self.assertLess(video_view, 100)
         self.assertEqual(video_url,
-                         'https://www.youtube.com/watch?v=zr6J20IR9J0')
+                         'https://www.youtube.com/watch?v=B-5VHSKIuHw')
 
-        self.assertEqual(video_likes, 'disabled')
-        self.assertEqual(video_dislikes, 'disabled')
-        self.assertEqual(video_comments, 'disabled')
+        self.assertEqual(video_likes, '1')
+        self.assertEqual(video_dislikes, '0')
+        self.assertEqual(video_comments, '0')
         self.assertGreaterEqual(video_favorites, 0)
 
 
