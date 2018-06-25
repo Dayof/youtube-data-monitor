@@ -35,6 +35,8 @@ $ cd youtube-data-monitor
 
 ### Instalar a aplicação
 
+## Ubuntu
+
 - Ainda no Terminal, digite:
 
 ```
@@ -46,6 +48,15 @@ $ bash youtube.sh install
 - O Banco de Dados utilizado será o PostgreSQL. Insira um usuário e uma senha que desejar, quando solicitado.
 
 - Após este procedimento, a aplicação estará instalada na sua máquina.
+
+## MAC OS
+ [Siga as instruções acima](## Ubuntu)<br />
+ Por fim, abra o arquivo activate que se encontra em venv/bin e adicione as seguintes linhas ao final da função deactivate():
+ ```
+ unset YOUTUBE_KEY
+ unset DATABASE_URL/
+ ```
+
 
 ### Executar a aplicação
 
