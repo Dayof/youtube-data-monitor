@@ -7,6 +7,7 @@ from server.models import Videos as VideosDB, Relationship_Actor_Videos
 from server.queries import DBYouTube
 from server.main import app
 import time
+import progressbar
 import os
 import json
 
@@ -24,7 +25,7 @@ with open('config/actors.json') as data_file:
     with open('config/parameters.json') as data_file:
         parameters = json.load(data_file)['parameters']
 
-    for actor in actors_dict:
+    for actor in progressbar.progressbar(actors_dict):
         channel_id = actor['id']
         channel_username = actor['username']
         channel_actor = actor['actor']
@@ -64,7 +65,7 @@ with open('config/actors.json') as data_file:
 
             db.session.add(actor_db)
             db.session.commit()
-            print(actor_db)
+            time.sleep(0.02)
             videos_views = video.get_all_video_views_user_id(
                 response,
                 parameters['video_limit'],
