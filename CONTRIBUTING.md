@@ -50,7 +50,7 @@ $ bash youtube.sh install
 - Após este procedimento, a aplicação estará instalada na sua máquina.
 
 ## MAC OS
- [Siga as instruções acima](##ubuntu)<br />
+ [Siga as instruções acima](#ubuntu)<br />
  Por fim, abra o arquivo activate que se encontra em venv/bin e adicione as seguintes linhas ao final da função deactivate():
  ```
  unset YOUTUBE_KEY
