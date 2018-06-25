@@ -4,15 +4,15 @@
 
 ### youtube.py
 
-Nesse arquivo, encontramos a classe YoutubeAPI. Nesta classe existem diversos métodos que tem como objetivo buscar informações sobre os canais dos atores políticos, alguns exemplos são o numero de inscritos (get_channel_subscribers) e o número de visualizações totais do canal (get_channel_total_view_count).
+Nesse módulo, encontramos a classe YoutubeAPI. Nesta classe existem diversos métodos que tem como objetivo buscar informações sobre os canais dos atores políticos, alguns exemplos são o numero de inscritos (get_channel_subscribers) e o número de visualizações totais do canal (get_channel_total_view_count).
 
 ### videos.py  
-Esse arquivo contém a classe Videos, seus métodos tem como objetivo buscar informações, disponibilizadas pela API do Youtube, sobre os vídeos publicados por cada um dos atores políticos. Alguns exemplos são:
+Esse módulo contém a classe Videos, seus métodos tem como objetivo buscar informações, disponibilizadas pela API do Youtube, sobre os vídeos publicados por cada um dos atores políticos. Alguns exemplos são:
 * get_all_video_items, que busca todos os tipos de informações disponibilizadas em cada video;
 * get_category_info, que retorna todas as informações de uma categoria;
 
 ### update.py
-Esse arquivo possui funcionalidades que requisitam todas as informações de canais, vídeos e vídeos relacionados da API.
+Esse módulo possui funcionalidades que requisitam todas as informações de canais, vídeos e vídeos relacionados da API. Bem como, realiza a inserção das informações coletadas no banco de dados.
 
 
 ## config
@@ -22,7 +22,18 @@ Esse arquivo possui funcionalidades que requisitam todas as informações de can
 Contém o nome, id e username de cada ator político predeterminado em formato JSON. Essas informações podem ser alteradas, para atender a necessidade do usuário.
 
 ### error_messages.json
-Esse arquivo possui mensagens para cada código de erro do flask. Esse arquivo pode, também, ser alterado de acordo com a necessidade do usuário.
+
+Esse módulo possui mensagens para cada código de erro do flask. Esse módulo pode, também, ser alterado de acordo com a necessidade do usuário.
+
+### parameters.json
+
+Esse módulo contém parâmetros que podem ser alterados de acordo com a necessidade do usuário. São eles:
+* Número limite de vídeos e vídeos relacionados que a aplicação busca na API;
+* Data referência para coleta. Só irão ser coletados vídeos publicados após essa data e devem seguir o seguinte formato (YYYY-MM-DDTHH:MM:SS.ss-ss:ss);
+
+### routes_help.json
+
+O módulo acima descreve todas as rotas utilizadas no flask e seu propósito.
 
 ## server
 
