@@ -185,3 +185,15 @@ E então executar o servidor com:
 ```
 $ flask run
 ```
+
+## Lista de Bugs e dívidas técnicas
+
+### Dívidas técnicas
+
+* [Comando Bash para instalação automática não é compatível totalmente com sistemas MAC OS](https://github.com/unb-cic-esw/youtube-data-monitor/issues/61);
+* [As datas das coletas estão no formato: YYYY-MM-DD. O comportamento esperado seria: DD-MM-YYYY](https://github.com/unb-cic-esw/youtube-data-monitor/issues/62);
+* [Adicionar versões para os endpoints que retornam arquivos CSV](https://github.com/unb-cic-esw/youtube-data-monitor/issues/63);
+
+### Bugs
+
+* [Sustentar mais de uma coleta por dia](https://github.com/unb-cic-esw/youtube-data-monitor/issues/64);
