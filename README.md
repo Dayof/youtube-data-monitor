@@ -24,25 +24,25 @@ Os dados estão sendo coletados periodicamente, dispostos nos seguintes links
 - [Datas de coletas](https://youtube-data-monitor.herokuapp.com/dates)
 
 
-- Para informações do canal (<actor>) na data (<date>) específica:
+- Para informações do canal (&lt;actor&gt;) na data (&lt;date&gt;) específica:
 
 ```
 https://youtube-data-monitor.herokuapp.com/<date>/canal/<actor>
 ```
 
-- Para informações de todos os vídeos de um canal (<actor>) em uma data (<date>) específica:
+- Para informações de todos os vídeos de um canal (&lt;actor&gt;) em uma data (&lt;date&gt;) específica:
 
 ```
 https://youtube-data-monitor.herokuapp.com/<date>/canal/<actor>/videos
 ```
 
-- Para informações de todos os vídeos relacionados de um vídeo (<video>) de um canal (<actor>) em uma data (<date>) específica:
+- Para informações de todos os vídeos relacionados de um vídeo (&lt;video&gt;) de um canal (&lt;actor&gt;) em uma data (&lt;date&gt;) específica:
 
 ```
 https://youtube-data-monitor.herokuapp.com/<date>/canal/<actor>/videos/<video>
 ```
 
-- Para informações de todos os vídeos do banco de dados em uma data (<date>) específica:
+- Para informações de todos os vídeos do banco de dados em uma data (&lt;date&gt;) específica:
 
 ```
 https://youtube-data-monitor.herokuapp.com/<date>/videos
