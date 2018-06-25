@@ -23,6 +23,7 @@ Os dados estão sendo coletados periodicamente, dispostos nos seguintes links
 
 - [Datas de coletas](https://youtube-data-monitor.herokuapp.com/dates)
 
+
 - Para informações do canal (<actor>) na data (<date>) específica:
 
 ```
@@ -34,6 +35,25 @@ https://youtube-data-monitor.herokuapp.com/<date>/canal/<actor>
 ```
 https://youtube-data-monitor.herokuapp.com/<date>/canal/<actor>/videos
 ```
+
+- Para informações de todos os vídeos relacionados de um vídeo (<video>) de um canal (<actor>) em uma data (<date>) específica:
+
+```
+https://youtube-data-monitor.herokuapp.com/<date>/canal/<actor>/videos/<video>
+```
+
+- Para informações de todos os vídeos do banco de dados em uma data (<date>) específica:
+
+```
+https://youtube-data-monitor.herokuapp.com/<date>/videos
+```
+
+- Para informações de todas as rotas disponíveis:
+
+```
+https://youtube-data-monitor.herokuapp.com/help
+```
+
 
 Para contribuir com o repositório, favor leia o arquivo
 [CONTRIBUTING to resocie youtube-data-monitor](CONTRIBUTING.md) antes.
