@@ -40,3 +40,6 @@ Para contribuir com o repositório, favor leia o arquivo
 
 Para informações sobre a estrutura do código, favor leia o arquivo
 [STRUCTURE of resocie youtube-data-monitor](STRUCTURE.md).
+
+Para informações sobre o desenvolvimento do projeto, favor leia o arquivo
+[SOFTWARE_ENGENEERING of resocie youtube-data-monitor](SOFTWARE_ENGENEERING.md).
