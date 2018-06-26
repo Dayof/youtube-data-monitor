@@ -24,7 +24,7 @@ class TestHeroku(unittest.TestCase):
 
     def test_list_actor_channel_info(self):
         # Envia uma requisição HTTP GET para a aplicação
-        result = requests.get(HEROKU_URL+'2018-06-25/canal/'
+        result = requests.get(HEROKU_URL+'2018-06-26/canal/'
                               'Frente_Brasil_Popular')
 
         # Verifica o código de estado da resposta da requisição
@@ -44,7 +44,7 @@ class TestHeroku(unittest.TestCase):
 
     def test_list_actor_channel_info_with_wrong_actor_name(self):
         # Envia uma requisição HTTP GET para a aplicação
-        result = requests.get(HEROKU_URL+'2018-06-25/canal/Frente')
+        result = requests.get(HEROKU_URL+'2018-06-26/canal/Frente')
 
         # Verifica o código de estado da resposta da requisição
         self.assertEqual(result.status_code, 460)
