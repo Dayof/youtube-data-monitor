@@ -46,8 +46,6 @@ class DBYouTube:
         if videos is not None:
             for item in videos:
                 del item.__dict__['_sa_instance_state']
-                if item.__dict__['tags'] != 'disabled':
-                    item.__dict__['tags'] = parser_tags(item.__dict__['tags'])
                 all_videos.append(item.__dict__)
 
             return all_videos
@@ -85,10 +83,6 @@ class DBYouTube:
 
             if video_info is not None:
                 del video_info.__dict__['_sa_instance_state']
-                if video_info.__dict__['tags'] != 'disabled':
-                    video_info.__dict__['tags'] = parser_tags(
-                        video_info.__dict__['tags']
-                    )
                 video_info = video_info.__dict__
                 original_video_id = video_info['video_id']
 
@@ -107,10 +101,6 @@ class DBYouTube:
                 if related_videos_results is not None:
                     for item in related_videos_results:
                         del item.__dict__['_sa_instance_state']
-                        if item.__dict__['tags'] != 'disabled':
-                            item.__dict__['tags'] = parser_tags(
-                                item.__dict__['tags']
-                            )
                         related_videos.append(item.__dict__)
 
         if related_videos_results is None or video_info is None:
@@ -128,8 +118,6 @@ class DBYouTube:
         if videos_db is not None:
             for item in videos_db:
                 del item.__dict__['_sa_instance_state']
-                if item.__dict__['tags'] != 'disabled':
-                    item.__dict__['tags'] = parser_tags(item.__dict__['tags'])
                 videos.append(item.__dict__)
 
         return videos
@@ -196,12 +184,3 @@ class DBYouTube:
         )
         db.session.add(relationship_actor_db)
         db.session.commit()
-
-
-def parser_tags(tags):
-    tags = tags.replace('"', '')
-    tags = '["' + tags[1:]
-    tags = tags[:-1] + '"]'
-    tags = tags.replace(',', '","')
-    tags = tags.replace(':', '')
-    return json.loads(tags)
